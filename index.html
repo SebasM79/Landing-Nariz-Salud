@@ -1,0 +1,1246 @@
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Nariz Electrónica - Innovación en Detección Olfativa Artificial
+    </title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#eef2ff",
+                100: "#e0e7ff",
+                500: "#6366f1",
+                600: "#4f46e5",
+                700: "#4338ca",
+                900: "#312e81",
+              },
+              tech: {
+                cyan: "#06b6d4",
+                emerald: "#10b981",
+                amber: "#f59e0b",
+                rose: "#f43f5e",
+                dark: "#0f172a",
+              },
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Outfit", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-panel {
+        background: rgba(15, 23, 42, 0.75);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .glass-card {
+        background: rgba(30, 41, 59, 0.7);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .glow-effect {
+        box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.4);
+      }
+      .glow-effect-cyan {
+        box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.4);
+      }
+      .bg-grid-pattern {
+        background-image: radial-gradient(
+          rgba(255, 255, 255, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 24px 24px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white"
+  >
+    <!-- Navbar -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-slate-800/80"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <div class="flex items-center space-x-3">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-tech-cyan flex items-center justify-center text-white font-bold text-xl shadow-lg"
+            >
+              <i class="fa-solid fa-wind"></i>
+            </div>
+            <div>
+              <span
+                class="font-display font-bold text-xl tracking-tight text-white block leading-none"
+                >Nariz Electrónica</span
+              >
+              <span
+                class="text-xs text-tech-cyan font-medium tracking-widest uppercase"
+                >IoT & TinyML Health Tech</span
+              >
+            </div>
+          </div>
+
+          <div class="hidden md:flex items-center space-x-8">
+            <a
+              href="#inicio"
+              class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              >Inicio</a
+            >
+            <a
+              href="#sensores"
+              class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              >Matriz de Sensores</a
+            >
+            <a
+              href="#prototipos"
+              class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              >Evolución Prototipos</a
+            >
+            <a
+              href="#beneficios"
+              class="text-sm font-medium text-slate-300 hover:text-white transition-colors"
+              >Beneficios & Mercado</a
+            >
+            <a
+              href="#contacto"
+              class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2.5 rounded-xl font-medium text-sm transition-all duration-300 shadow-md hover:shadow-brand-500/25"
+            >
+              Propuesta Comercial
+            </a>
+          </div>
+
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-btn"
+              class="text-slate-400 hover:text-white p-2"
+            >
+              <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden glass-panel border-b border-slate-800 px-4 pt-2 pb-6 space-y-3"
+      >
+        <a
+          href="#inicio"
+          class="block text-slate-300 hover:text-white py-2 font-medium"
+          >Inicio</a
+        >
+        <a
+          href="#sensores"
+          class="block text-slate-300 hover:text-white py-2 font-medium"
+          >Matriz de Sensores</a
+        >
+        <a
+          href="#prototipos"
+          class="block text-slate-300 hover:text-white py-2 font-medium"
+          >Evolución Prototipos</a
+        >
+        <a
+          href="#beneficios"
+          class="block text-slate-300 hover:text-white py-2 font-medium"
+          >Beneficios & Mercado</a
+        >
+        <a
+          href="#contacto"
+          class="block bg-brand-600 text-white text-center py-2.5 rounded-xl font-medium mt-4"
+          >Propuesta Comercial</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="inicio"
+      class="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden bg-grid-pattern"
+    >
+      <!-- Blur Glow Backgrounds -->
+      <div
+        class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-600/20 rounded-full blur-[120px] pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/3 right-10 w-[400px] h-[400px] bg-tech-cyan/15 rounded-full blur-[100px] pointer-events-none"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+          <div class="lg:col-span-7 space-y-8">
+            <div
+              class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full glass-card border border-brand-500/30 text-brand-100 text-xs font-semibold uppercase tracking-wider"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-tech-emerald animate-pulse"
+              ></span>
+              <span>Sustituto Artificial del Olfato Humano</span>
+            </div>
+
+            <h1
+              class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight"
+            >
+              Protección, Autonomía y
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-brand-500 via-tech-cyan to-tech-emerald"
+                >Detección Inteligente</span
+              >
+              de Aromas.
+            </h1>
+
+            <p
+              class="text-lg text-slate-300 max-w-2xl font-light leading-relaxed"
+            >
+              Un dispositivo biomédico IoT y TinyML diseñado para asistir a
+              personas con <strong>anosmia e hiposmia</strong>. Previene
+              accidentes por fugas de gas o humo y evita intoxicaciones
+              alimentarias identificando comida en descomposición.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2"
+            >
+              <a
+                href="#prototipos"
+                class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-xl font-semibold text-center transition-all shadow-lg glow-effect flex items-center justify-center space-x-2"
+              >
+                <span>Ver Prototipos</span>
+                <i class="fa-solid fa-microchip"></i>
+              </a>
+              <a
+                href="#sensores"
+                class="glass-card hover:bg-slate-800/80 text-slate-200 px-8 py-4 rounded-xl font-semibold text-center transition-all border border-slate-700 flex items-center justify-center space-x-2"
+              >
+                <span>Explorar Sensores</span>
+                <i class="fa-solid fa-sliders"></i>
+              </a>
+            </div>
+
+            <!-- Highlights Stats -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800">
+              <div>
+                <span
+                  class="font-display font-bold text-2xl lg:text-3xl text-white block"
+                  >5</span
+                >
+                <span class="text-xs text-slate-400">Sensores Ortogonales</span>
+              </div>
+              <div>
+                <span
+                  class="font-display font-bold text-2xl lg:text-3xl text-tech-cyan block"
+                  >240 MHz</span
+                >
+                <span class="text-xs text-slate-400"
+                  >Procesamiento ESP32-S3</span
+                >
+              </div>
+              <div>
+                <span
+                  class="font-display font-bold text-2xl lg:text-3xl text-tech-emerald block"
+                  >100%</span
+                >
+                <span class="text-xs text-slate-400"
+                  >TinyML & IA en la Nube/Edge</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Hero Graphic -->
+          <div class="lg:col-span-5">
+            <div
+              class="relative glass-card p-6 sm:p-8 rounded-3xl border border-slate-700/60 shadow-2xl"
+            >
+              <div
+                class="flex items-center justify-between pb-6 border-b border-slate-800"
+              >
+                <div class="flex items-center space-x-3">
+                  <div class="w-3 h-3 rounded-full bg-tech-rose"></div>
+                  <div class="w-3 h-3 rounded-full bg-tech-amber"></div>
+                  <div class="w-3 h-3 rounded-full bg-tech-emerald"></div>
+                </div>
+                <span class="text-xs font-mono text-slate-400"
+                  >Status: Prototipo 1 Activo</span
+                >
+              </div>
+
+              <!-- Device Live Demo Simulation -->
+              <div class="py-8 space-y-6">
+                <div class="text-center space-y-2">
+                  <div
+                    class="inline-block p-4 rounded-full bg-slate-900 border border-brand-500/40 glow-effect"
+                  >
+                    <i
+                      class="fa-solid fa-brain text-4xl text-brand-500 animate-pulse"
+                    ></i>
+                  </div>
+                  <h3 class="font-display text-lg font-semibold text-white">
+                    Análisis en Tiempo Real
+                  </h3>
+                  <p class="text-xs text-slate-400">
+                    Algoritmo de clasificación de huella olfativa
+                  </p>
+                </div>
+
+                <!-- Interactive Sample Trigger -->
+                <div
+                  class="bg-slate-900/90 rounded-2xl p-4 border border-slate-800 space-y-3"
+                >
+                  <label class="text-xs font-medium text-slate-300 block"
+                    >Simular Exposición de Ambiente:</label
+                  >
+                  <div class="grid grid-cols-3 gap-2">
+                    <button
+                      onclick="simularLectura('gas')"
+                      class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium border border-slate-700 transition-colors"
+                    >
+                      🔥 Fuga Gas / Humo
+                    </button>
+                    <button
+                      onclick="simularLectura('alimento')"
+                      class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium border border-slate-700 transition-colors"
+                    >
+                      🥩 Comida Podrida
+                    </button>
+                    <button
+                      onclick="simularLectura('limpio')"
+                      class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium border border-slate-700 transition-colors"
+                    >
+                      🌿 Aire Limpio
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Live Display Panel -->
+                <div
+                  id="demo-display"
+                  class="bg-black/80 rounded-xl p-4 font-mono text-xs border border-brand-500/30 space-y-2"
+                >
+                  <div class="flex justify-between text-slate-400">
+                    <span>PANTALLA OLED 0.96"</span>
+                    <span class="text-tech-emerald">128x64 I2C</span>
+                  </div>
+                  <div id="demo-title" class="text-tech-cyan font-bold text-sm">
+                    ESCANEO AMBIENTAL...
+                  </div>
+                  <div id="demo-body" class="text-slate-300">
+                    Esperando señal de prueba de matriz de sensores MQ + BME688
+                  </div>
+                  <div
+                    id="demo-alert"
+                    class="text-tech-emerald pt-2 border-t border-slate-800 font-semibold"
+                  >
+                    ESTADO: NORMAL - SIN RIESGOS
+                  </div>
+                </div>
+              </div>
+
+              <div class="text-center pt-2">
+                <span class="text-xs text-slate-400"
+                  >ESP32-S3-Zero · Dual Core Xtensa LX7 @ 240MHz</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Sensors Section -->
+    <section
+      id="sensores"
+      class="py-20 bg-slate-900/50 relative border-t border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span
+            class="text-tech-cyan text-xs font-bold uppercase tracking-widest"
+            >Matriz Tecnológica Ortogonal</span
+          >
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">
+            Sensores Seleccionados de Alta Precision
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Haz clic en cada sensor para desplegar su ficha técnica detallada,
+            curva de sensibilidad y rol específico dentro del primer prototipo.
+          </p>
+        </div>
+
+        <!-- Sensors Grid Buttons -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
+          <button
+            onclick="mostrarSensor('mq2')"
+            id="btn-mq2"
+            class="sensor-btn active p-4 rounded-2xl glass-card hover:border-brand-500 transition-all text-center space-y-2 border border-brand-500"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-tech-amber/20 text-tech-amber flex items-center justify-center mx-auto text-xl font-bold"
+            >
+              MQ-2
+            </div>
+            <div class="font-display font-semibold text-white text-sm">
+              MQ-2
+            </div>
+            <div class="text-[11px] text-slate-400">Gas & Humo</div>
+          </button>
+
+          <button
+            onclick="mostrarSensor('mq3')"
+            id="btn-mq3"
+            class="sensor-btn p-4 rounded-2xl glass-card hover:border-brand-500 transition-all text-center space-y-2 border border-slate-800"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center mx-auto text-xl font-bold"
+            >
+              MQ-3
+            </div>
+            <div class="font-display font-semibold text-white text-sm">
+              MQ-3
+            </div>
+            <div class="text-[11px] text-slate-400">Alcohol / Fermentación</div>
+          </button>
+
+          <button
+            onclick="mostrarSensor('mq9')"
+            id="btn-mq9"
+            class="sensor-btn p-4 rounded-2xl glass-card hover:border-brand-500 transition-all text-center space-y-2 border border-slate-800"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-tech-rose/20 text-tech-rose flex items-center justify-center mx-auto text-xl font-bold"
+            >
+              MQ-9
+            </div>
+            <div class="font-display font-semibold text-white text-sm">
+              MQ-9
+            </div>
+            <div class="text-[11px] text-slate-400">Monóxido de Carbono</div>
+          </button>
+
+          <button
+            onclick="mostrarSensor('mq135')"
+            id="btn-mq135"
+            class="sensor-btn p-4 rounded-2xl glass-card hover:border-brand-500 transition-all text-center space-y-2 border border-slate-800"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center mx-auto text-xl font-bold"
+            >
+              MQ-135
+            </div>
+            <div class="font-display font-semibold text-white text-sm">
+              MQ-135
+            </div>
+            <div class="text-[11px] text-slate-400">Comida / Aire / NH3</div>
+          </button>
+
+          <button
+            onclick="mostrarSensor('bme688')"
+            id="btn-bme688"
+            class="sensor-btn p-4 rounded-2xl glass-card hover:border-brand-500 transition-all text-center space-y-2 border border-slate-800"
+          >
+            <div
+              class="w-12 h-12 rounded-xl bg-tech-emerald/20 text-tech-emerald flex items-center justify-center mx-auto text-xl font-bold"
+            >
+              <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div class="font-display font-semibold text-white text-sm">
+              BME688
+            </div>
+            <div class="text-[11px] text-slate-400">IA MEMS Bosch</div>
+          </button>
+        </div>
+
+        <!-- Dynamic Detail Container -->
+        <div
+          id="sensor-detail-box"
+          class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-700/80 transition-all"
+        >
+          <!-- Javascript populates details here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Prototype Evolution Interactive Section -->
+    <section id="prototipos" class="py-20 bg-slate-950 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span
+            class="text-brand-500 text-xs font-bold uppercase tracking-widest"
+            >Roadmap de Desarrollo</span
+          >
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">
+            Evolución de los Prototipos
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Explora desde la arquitectura física actual en validación hasta los
+            prototipos proyectados de alta miniaturización y nanotecnología.
+          </p>
+        </div>
+
+        <!-- Stage Navigation Tabs -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12">
+          <button
+            onclick="cambiarPrototipo(1)"
+            id="tab-p1"
+            class="proto-tab bg-brand-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all"
+          >
+            Prototipo 1: Validación Básica (Actual)
+          </button>
+          <button
+            onclick="cambiarPrototipo(2)"
+            id="tab-p2"
+            class="proto-tab bg-slate-800 text-slate-300 hover:bg-slate-700 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all"
+          >
+            Prototipo 2: Conectividad Wearable
+          </button>
+          <button
+            onclick="cambiarPrototipo(3)"
+            id="tab-p3"
+            class="proto-tab bg-slate-800 text-slate-300 hover:bg-slate-700 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all"
+          >
+            Prototipo 3: TinyML & Olores Complejos
+          </button>
+          <button
+            onclick="cambiarPrototipo(4)"
+            id="tab-p4"
+            class="proto-tab bg-slate-800 text-slate-300 hover:bg-slate-700 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all"
+          >
+            Prototipo 4: Nanotecnología
+          </button>
+        </div>
+
+        <!-- Dynamic Prototype Display -->
+        <div
+          id="proto-display-box"
+          class="glass-card rounded-3xl overflow-hidden border border-slate-800"
+        >
+          <!-- Javascript renders prototype detail here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercial Benefits & Market Section -->
+    <section
+      id="beneficios"
+      class="py-20 bg-slate-900/60 border-t border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span
+            class="text-tech-emerald text-xs font-bold uppercase tracking-widest"
+            >Impacto & Oportunidad</span
+          >
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-white">
+            Beneficios Clave para Inversores y Usuarios
+          </h2>
+          <p class="text-slate-400 text-sm sm:text-base">
+            Una solución de vanguardia orientada al mercado de la salud digital,
+            accesibilidad y seguridad en el hogar e industria alimentaria.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Social Impact -->
+          <div
+            class="glass-card p-8 rounded-3xl border border-slate-800 space-y-4 hover:border-brand-500/50 transition-all"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-brand-500/20 text-brand-500 flex items-center justify-center text-2xl font-bold"
+            >
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">
+              Impacto Social y Accesibilidad
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Brinda autonomía y seguridad a personas diagnosticadas con anosmia
+              e hiposmia. Les devuelve la confianza al vivir solos al eliminar
+              el riesgo invisible de fugas de gas o incendios.
+            </p>
+            <ul
+              class="text-xs text-slate-400 space-y-2 pt-2 border-t border-slate-800"
+            >
+              <li>
+                <i class="fa-solid fa-check text-tech-emerald mr-2"></i>
+                Prevención de riesgo de vida
+              </li>
+              <li>
+                <i class="fa-solid fa-check text-tech-emerald mr-2"></i>
+                Autonomía funcional diaria
+              </li>
+            </ul>
+          </div>
+
+          <!-- Commercial & Industrial -->
+          <div
+            class="glass-card p-8 rounded-3xl border border-slate-800 space-y-4 hover:border-tech-cyan/50 transition-all"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-tech-cyan/20 text-tech-cyan flex items-center justify-center text-2xl font-bold"
+            >
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">
+              Aplicación Alimentaria e Industrial
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Identificación temprana de amoníaco, sulfuros y etanol derivados
+              del deterioro orgánico. Permite prevenir gastroenteritis y evaluar
+              la calidad de los insumos perecederos.
+            </p>
+            <ul
+              class="text-xs text-slate-400 space-y-2 pt-2 border-t border-slate-800"
+            >
+              <li>
+                <i class="fa-solid fa-check text-tech-cyan mr-2"></i> Detección
+                de alimentos podridos
+              </li>
+              <li>
+                <i class="fa-solid fa-check text-tech-cyan mr-2"></i> Control de
+                calidad en gastronomía
+              </li>
+            </ul>
+          </div>
+
+          <!-- Economic & Tech -->
+          <div
+            class="glass-card p-8 rounded-3xl border border-slate-800 space-y-4 hover:border-tech-emerald/50 transition-all"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-tech-emerald/20 text-tech-emerald flex items-center justify-center text-2xl font-bold"
+            >
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-white">
+              Escalabilidad & Hardware IoT
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Construido sobre una arquitectura económica escalable basada en la
+              ESP32-S3 y sensores estandarizados, permitiendo márgenes
+              comerciales atractivos para producción en volumen.
+            </p>
+            <ul
+              class="text-xs text-slate-400 space-y-2 pt-2 border-t border-slate-800"
+            >
+              <li>
+                <i class="fa-solid fa-check text-tech-emerald mr-2"></i> Bajo
+                costo de componentes
+              </li>
+              <li>
+                <i class="fa-solid fa-check text-tech-emerald mr-2"></i> Modelo
+                B2C y B2B directo
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commercial Contact / CTA -->
+    <section id="contacto" class="py-20 relative bg-grid-pattern">
+      <div
+        class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-8"
+      >
+        <div
+          class="glass-card p-8 sm:p-12 rounded-3xl border border-brand-500/30 space-y-6 glow-effect"
+        >
+          <span
+            class="text-tech-cyan text-xs font-bold uppercase tracking-widest"
+            >Oportunidad de Inversión & Desarrollo</span
+          >
+          <h2
+            class="font-display text-3xl sm:text-5xl font-extrabold text-white"
+          >
+            ¿Te interesa formar parte del proyecto?
+          </h2>
+          <p class="text-slate-300 text-base max-w-2xl mx-auto font-light">
+            Buscamos aliados estratégicos, compradores y capital semilla para
+            acelerar la transición del Prototipo 1 al modelo wearable comercial
+            mass-market.
+          </p>
+
+          <div class="pt-4 flex flex-col sm:flex-row justify-center gap-4">
+            <button
+              id="open-contact-modal"
+              type="button"
+              class="bg-brand-600 hover:bg-brand-500 text-white px-8 py-4 rounded-xl font-semibold transition-all shadow-lg flex items-center justify-center space-x-2"
+            >
+              <i class="fa-solid fa-envelope"></i>
+              <span>Contactar Equipo Comercial</span>
+            </button>
+            <button
+              onclick="copiarContacto('+54 9 11 0000-0000')"
+              class="glass-card hover:bg-slate-800 text-slate-200 px-8 py-4 rounded-xl font-semibold border border-slate-700 flex items-center justify-center space-x-2"
+            >
+              <i class="fa-solid fa-phone"></i>
+              <span>Agendar Reunión Demostrativa</span>
+            </button>
+          </div>
+
+          <div
+            id="copy-msg"
+            class="text-xs text-tech-emerald font-mono h-4 opacity-0 transition-opacity"
+          >
+            ¡Datos de contacto copiados al portapapeles!
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div
+      id="contact-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 p-4"
+    >
+      <div
+        class="w-full max-w-md rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-2xl"
+      >
+        <div class="mb-5 flex items-start justify-between gap-4">
+          <div>
+            <p
+              class="text-xs font-bold uppercase tracking-[0.2em] text-tech-cyan"
+            >
+              Contacto
+            </p>
+            <h3 class="mt-2 text-2xl font-bold text-white">Enviar correo</h3>
+          </div>
+          <button
+            id="close-contact-modal"
+            type="button"
+            class="text-slate-400 hover:text-white text-2xl leading-none"
+            aria-label="Cerrar modal"
+          >
+            ×
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <p class="text-sm text-slate-300">
+            Se enviará al correo:
+            <strong class="text-tech-cyan">sebamussi.dev@hotmail.com</strong>
+          </p>
+
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label
+                for="sender-email"
+                class="mb-2 block text-sm font-medium text-slate-200"
+              >
+                Tu dirección de email
+              </label>
+              <input
+                id="sender-email"
+                type="email"
+                required
+                placeholder="tuemail@ejemplo.com"
+                class="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white placeholder:text-slate-500 focus:border-tech-cyan focus:outline-none"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full rounded-xl bg-brand-600 px-4 py-3 font-semibold text-white transition hover:bg-brand-500"
+            >
+              Enviar correo
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="bg-slate-950 border-t border-slate-800 py-8 text-center text-xs text-slate-500"
+    >
+      <div class="max-w-7xl mx-auto px-4">
+        <p>
+          © 2026 Proyecto Nariz Electrónica. Todos los derechos reservados.
+          Sistema IoT biomédico de detección olfativa.
+        </p>
+      </div>
+    </footer>
+
+    <!-- JavaScript Interactions Logic -->
+    <script>
+      // Sensors Data Matrix
+      const sensoresData = {
+        mq2: {
+          nombre: "MQ-2 (Fugas de Gas & Humo)",
+          tag: "Seguridad Crítica de Vida",
+          color: "text-tech-amber",
+          bg: "bg-tech-amber/10",
+          gases: "GLP, Butano, Propano, Metano, Hidrógeno, Humo.",
+          voltaje: "5V DC (Requiere divisor de voltaje a 3.3V para ESP32)",
+          consumo: "~150 mA (Calefactor de resistencia)",
+          rango: "300 a 10.000 ppm",
+          descripcion:
+            "Sensor semiconductor de dióxido de estaño (SnO2). Constituye la primera línea de defensa para prevenir explosiones en el hogar, fugas de garrafas o incendios incipientes en personas que no pueden oler el humo.",
+          curva:
+            "Curva logarítmica descendente de Rs/Ro respecto a ppm. Alta respuesta a propano y GLP.",
+        },
+        mq3: {
+          nombre: "MQ-3 (Alcohol / Vapores de Fermentación)",
+          tag: "Detección de Solventes y Fermentos",
+          color: "text-purple-400",
+          bg: "bg-purple-500/10",
+          gases:
+            "Etanol (Alcohol), Vapores de solventes, Fermentación orgánica.",
+          voltaje: "5V DC (Comparador LM393 integrado)",
+          consumo: "122 mA (Calefactor interno constante)",
+          rango: "0.05 a 10 mg/L en aire (20 - 1000 ppm)",
+          descripcion:
+            "Sensor altamente selectivo al alcohol etílico. Ayuda a detectar la fermentación en líquidos o descomposición inicial de frutas y carnes que generen vapores alcohólicos.",
+          curva:
+            "Alta selectividad a moléculas de alcohol, prácticamente insensible a metano o gas de red.",
+        },
+        mq9: {
+          nombre: "MQ-9 (Monóxido de Carbono & Gases Combustibles)",
+          tag: "Alerta Antitóxica",
+          color: "text-tech-rose",
+          bg: "bg-tech-rose/10",
+          gases: "Monóxido de Carbono (CO), Gas Licuado, Metano.",
+          voltaje: "5V DC",
+          consumo: "~150 mA",
+          rango: "10 a 10.000 ppm (CO)",
+          descripcion:
+            "Crucial para alertar sobre la presencia de Monóxido de Carbono, conocido como el 'asesino silencioso' por ser inodoro e incoloro. Esencial en hogares con estufas a gas o calefones.",
+          curva:
+            "Detección a baja temperatura de calentamiento para CO y alta temperatura para gases combustibles.",
+        },
+        mq135: {
+          nombre: "MQ-135 (Calidad de Aire & Descomposición de Alimentos)",
+          tag: "Análisis de Comida & Aire",
+          color: "text-blue-400",
+          bg: "bg-blue-500/10",
+          gases:
+            "Amoníaco (NH3), Sulfuros, Benceno, Vapores de descomposición orgánica.",
+          voltaje: "5V DC",
+          consumo: "~150 mA",
+          rango: "10 a 1.000 ppm",
+          descripcion:
+            "Detecta aminas voltátiles y compuestos sulfurados presentes cuando las carnes, lacteos o pescados se echan a perder. Es el sensor clave para prevenir ingesta de comida en mal estado.",
+          curva:
+            "Pendiente muy pronunciada ante concentraciones crecientes de amoníaco y sulfuros orgánicos.",
+        },
+        bme688: {
+          nombre: "Bosch BME688 (IA MEMS / VOCs / VSC / Clima)",
+          tag: "Inteligencia Artificial Ambiental",
+          color: "text-tech-emerald",
+          bg: "bg-tech-emerald/10",
+          gases:
+            "VOCs, VSC (Compuestos Volátiles de Azufre), Temperatura, Humedad, Presión.",
+          voltaje: "3.3V / 5V (Con regulador RT9193-33 integrado)",
+          consumo: "< 1 mA (Ultrabajo consumo)",
+          rango: "Escaneo multiciclo con software BME AI-Studio",
+          descripcion:
+            "El sensor estrella con matriz digital MEMS. Ejecuta algoritmos entrenados de TinyML en la ESP32-S3 para clasificar olores complejos y la huella exacta del aire con altísima precisión.",
+          curva:
+            "Respuesta multidimensional digital via I2C basada en ciclos de temperatura programables.",
+        },
+      };
+
+      // Prototype Evolution Data
+      const prototiposData = {
+        1: {
+          titulo: "Prototipo 1: Validación Básica y Laboratorio (Actual)",
+          badge: "Estado Actual - En Desarrollo",
+          badgeColor:
+            "bg-tech-emerald/20 text-tech-emerald border-tech-emerald/30",
+          micro: "Waveshare ESP32-S3-Zero (2MB PSRAM + Dual Core 240MHz)",
+          sensores: "Matriz de 5 Sensores: MQ-2, MQ-3, MQ-9, MQ-135 y BME688",
+          alimentacion:
+            "Baterías LiPo 3.7V (Paralelo) + Cargador TP4056 USB-C + Step-Up MT3608 (5V)",
+          alertas:
+            'Pantalla OLED 0.96" I2C + Buzzer Activo + Motor Vibrador Háptico 3V',
+          carcasa:
+            "Gabinete impreso en 3D con cámara de flujo de aire y tabique térmico aislante",
+          software:
+            "Firmware C++ en PlatformIO / VS Code con lógica de umbrales analógicos y lectura I2C",
+          imgHtml: `
+                  <div class="bg-slate-900/90 rounded-2xl p-6 border border-slate-700 space-y-4">
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs font-mono text-tech-cyan">ESQUEMA HARDWARE PROTOTIPO 1</span>
+                          <span class="px-2 py-1 rounded bg-brand-500/20 text-brand-300 text-[10px] font-bold">MONTAJE EN BANCO</span>
+                      </div>
+                      <div class="grid grid-cols-2 gap-3 text-xs">
+                          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                              <span class="text-slate-400 block font-mono text-[10px]">CEREBRO</span>
+                              <span class="text-white font-semibold">ESP32-S3 Mini</span>
+                          </div>
+                          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700">
+                              <span class="text-slate-400 block font-mono text-[10px]">ENERGÍA</span>
+                              <span class="text-tech-emerald font-semibold">LiPo + Boost 5V</span>
+                          </div>
+                          <div class="bg-slate-800 p-3 rounded-xl border border-slate-700 col-span-2">
+                              <span class="text-slate-400 block font-mono text-[10px]">MATRIZ SENSORIAL</span>
+                              <span class="text-tech-amber font-semibold">4x Sensores MQ + 1x BME688 IA</span>
+                          </div>
+                      </div>
+                      <div class="p-3 bg-black/60 rounded-xl font-mono text-[11px] text-slate-300 space-y-1">
+                          <div>> Sensor_MQ2: OK (Pin A0)</div>
+                          <div>> Sensor_BME688: OK (I2C 0x76)</div>
+                          <div>> OLED_Display: Init OK</div>
+                      </div>
+                  </div>
+              `,
+        },
+        2: {
+          titulo: "Prototipo 2: Seguridad Wearable y Conectividad IoT",
+          badge: "Futuro - Fase 2",
+          badgeColor: "bg-brand-500/20 text-brand-300 border-brand-500/30",
+          micro: "ESP32-S3 optimizado para ultra bajo consumo (Deep Sleep)",
+          sensores:
+            "Matriz optimizada miniaturizada con aislamiento térmico pasivo",
+          alimentacion:
+            "Batería LiPo ultra delgada integrada con recarga rápida USB-C y autonomía de 12hs",
+          alertas:
+            "Notificaciones PUSH móviles (SMS/WhatsApp a familiares), vibración fuerte y alerta sonora",
+          carcasa:
+            "Formato petaca con clip de enganche para cinturón o bolso de uso diario",
+          software:
+            "App móvil conectada por Bluetooth Low Energy (BLE) y Wi-Fi para registro histórico",
+          imgHtml: `
+                  <div class="bg-slate-900/90 rounded-2xl p-6 border border-slate-700 space-y-4">
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs font-mono text-brand-400">CONCEPT DESIGN PROTOTIPO 2</span>
+                          <span class="px-2 py-1 rounded bg-tech-cyan/20 text-tech-cyan text-[10px] font-bold">WEARABLE IoT</span>
+                      </div>
+                      <div class="p-6 bg-gradient-to-tr from-slate-900 to-slate-800 rounded-2xl border border-brand-500/30 text-center space-y-3">
+                          <i class="fa-solid fa-mobile-screen-button text-4xl text-brand-500"></i>
+                          <h4 class="font-display font-bold text-white">Integración con App Móvil</h4>
+                          <p class="text-xs text-slate-300">Envío de emergencias geolocalizadas a familiares si la persona con anosmia no responde a la vibración local.</p>
+                      </div>
+                  </div>
+              `,
+        },
+        3: {
+          titulo: "Prototipo 3: Inteligencia Artificial en el Borde (TinyML)",
+          badge: "Futuro - Fase 3",
+          badgeColor: "bg-purple-500/20 text-purple-300 border-purple-500/30",
+          micro:
+            "ESP32-S3 con aceleración por hardware vectorial para redes neuronales",
+          sensores: "BME688 multiciclo + Sensores electroquímicos de precisión",
+          alimentacion:
+            "Gestión avanzada de energía mediante conmutación MOSFET por bus",
+          alertas:
+            "Pantalla gráfica color TFT con espectro visual de huella aromática",
+          carcasa:
+            "Carcasa compacta ergonómica antideslizante con protección ambiental IP54",
+          software:
+            "Modelo de Machine Learning entrenado (TinyML) para descomposición fina de alimentos específicos",
+          imgHtml: `
+                  <div class="bg-slate-900/90 rounded-2xl p-6 border border-slate-700 space-y-4">
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs font-mono text-purple-400">RED NEURONAL EMBEBIDA</span>
+                          <span class="px-2 py-1 rounded bg-purple-500/20 text-purple-300 text-[10px] font-bold">TinyML</span>
+                      </div>
+                      <div class="p-4 bg-black/80 rounded-xl space-y-2 border border-purple-500/30">
+                          <div class="text-[11px] font-mono text-purple-300">TensorFlow Lite Micro -> Model Output:</div>
+                          <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+                              <div class="bg-purple-500 h-full" style="width: 94%"></div>
+                          </div>
+                          <div class="flex justify-between text-[10px] text-slate-400 font-mono">
+                              <span>Clasificación: Carne Podrida</span>
+                              <span>Confianza: 94%</span>
+                          </div>
+                      </div>
+                  </div>
+              `,
+        },
+        4: {
+          titulo: "Prototipo 4: Nanotecnología y Miniaturización Extrema",
+          badge: "Futuro - Fase 4",
+          badgeColor: "bg-tech-cyan/20 text-tech-cyan border-tech-cyan/30",
+          micro: "SoC Nanosemiconductor integrado de ultra bajo consumo",
+          sensores:
+            "Nanosensores de matriz de nanotubos de carbono (CNT) de ultra sensibilidad",
+          alimentacion: "Batería de estado sólido con recarga inalámbrica qi",
+          alertas:
+            "Integración biomédica háptica y sincronización con smartwatch",
+          carcasa:
+            "Formato tamaño anillo, dije o pin prendedor ultra liviano (<25 gramos)",
+          software:
+            "Diagnóstico médico preventivo y análisis de aliento para biomarcadores de salud pública",
+          imgHtml: `
+                  <div class="bg-slate-900/90 rounded-2xl p-6 border border-slate-700 space-y-4">
+                      <div class="flex items-center justify-between">
+                          <span class="text-xs font-mono text-tech-cyan">NANOTECOLOGÍA APLICADA</span>
+                          <span class="px-2 py-1 rounded bg-tech-cyan/20 text-tech-cyan text-[10px] font-bold">NANO-SENSORS</span>
+                      </div>
+                      <div class="p-6 bg-gradient-to-tr from-slate-900 to-tech-dark rounded-2xl border border-tech-cyan/30 text-center space-y-3">
+                          <i class="fa-solid fa-atom text-4xl text-tech-cyan animate-spin"></i>
+                          <h4 class="font-display font-bold text-white">Dispositivo Tamaño Dije / Pin</h4>
+                          <p class="text-xs text-slate-300">Integración invisible en la vestimenta del usuario para monitoreo permanente sin estigmatizar.</p>
+                      </div>
+                  </div>
+              `,
+        },
+      };
+
+      // Render Sensor Detail
+      function mostrarSensor(key) {
+        const sensor = sensoresData[key];
+        if (!sensor) return;
+
+        // Update Active Buttons UI
+        document.querySelectorAll(".sensor-btn").forEach((btn) => {
+          btn.classList.remove("active", "border-brand-500");
+          btn.classList.add("border-slate-800");
+        });
+        const activeBtn = document.getElementById(`btn-${key}`);
+        if (activeBtn) {
+          activeBtn.classList.add("active", "border-brand-500");
+          activeBtn.classList.remove("border-slate-800");
+        }
+
+        // Render Box
+        const box = document.getElementById("sensor-detail-box");
+        box.innerHTML = `
+              <div class="grid lg:grid-cols-12 gap-8 items-start">
+                  <div class="lg:col-span-7 space-y-4">
+                      <div class="flex items-center space-x-3">
+                          <span class="px-3 py-1 rounded-full text-xs font-bold uppercase ${sensor.bg} ${sensor.color}">
+                              ${sensor.tag}
+                          </span>
+                          <span class="text-xs text-slate-400 font-mono">ID: ${key.toUpperCase()}</span>
+                      </div>
+
+                      <h3 class="font-display text-2xl font-bold text-white">${sensor.nombre}</h3>
+                      <p class="text-slate-300 text-sm leading-relaxed">${sensor.descripcion}</p>
+
+                      <div class="grid sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800 text-xs">
+                          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                              <span class="text-slate-400 block font-medium">Gases / Sustancias Target:</span>
+                              <span class="text-white font-semibold">${sensor.gases}</span>
+                          </div>
+                          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                              <span class="text-slate-400 block font-medium">Rango de Medición:</span>
+                              <span class="text-tech-cyan font-semibold">${sensor.rango}</span>
+                          </div>
+                          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                              <span class="text-slate-400 block font-medium">Voltaje de Operación:</span>
+                              <span class="text-white font-semibold">${sensor.voltaje}</span>
+                          </div>
+                          <div class="bg-slate-900/80 p-3 rounded-xl border border-slate-800">
+                              <span class="text-slate-400 block font-medium">Consumo Eléctrico:</span>
+                              <span class="text-tech-amber font-semibold">${sensor.consumo}</span>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="lg:col-span-5 bg-slate-900/90 rounded-2xl p-6 border border-slate-800 space-y-4">
+                      <h4 class="font-display font-semibold text-white text-sm">Respuesta & Curva de Sensibilidad</h4>
+                      <div class="p-4 bg-black/60 rounded-xl border border-slate-800 font-mono text-xs space-y-2 text-slate-300">
+                          <div class="text-tech-cyan">// Principio de Funcionamiento</div>
+                          <div>${sensor.curva}</div>
+                      </div>
+                      <div class="p-3 bg-brand-900/30 rounded-xl border border-brand-500/20 text-xs text-brand-200">
+                          <i class="fa-solid fa-lightbulb text-brand-400 mr-2"></i>
+                          <strong>Rol en el Prototipo 1:</strong> Aporta su señal específica para formar la huella ortogonal combinada en la ESP32-S3.
+                      </div>
+                  </div>
+              </div>
+          `;
+      }
+
+      // Render Prototype Evolution
+      function cambiarPrototipo(num) {
+        const proto = prototiposData[num];
+        if (!proto) return;
+
+        // Tabs UI Update
+        document.querySelectorAll(".proto-tab").forEach((tab) => {
+          tab.classList.remove("bg-brand-600", "text-white");
+          tab.classList.add("bg-slate-800", "text-slate-300");
+        });
+        const activeTab = document.getElementById(`tab-p${num}`);
+        if (activeTab) {
+          activeTab.classList.add("bg-brand-600", "text-white");
+          activeTab.classList.remove("bg-slate-800", "text-slate-300");
+        }
+
+        // Display Box Render
+        const box = document.getElementById("proto-display-box");
+        box.innerHTML = `
+              <div class="p-6 sm:p-10 grid lg:grid-cols-12 gap-8 items-center">
+                  <div class="lg:col-span-7 space-y-6">
+                      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold border ${proto.badgeColor}">
+                          <span>${proto.badge}</span>
+                      </div>
+
+                      <h3 class="font-display text-2xl sm:text-3xl font-bold text-white">${proto.titulo}</h3>
+
+                      <div class="space-y-3 text-xs sm:text-sm">
+                          <div class="flex items-start space-x-3">
+                              <i class="fa-solid fa-microchip text-brand-500 mt-1"></i>
+                              <div><strong class="text-white">Microcontrolador:</strong> <span class="text-slate-300">${proto.micro}</span></div>
+                          </div>
+                          <div class="flex items-start space-x-3">
+                              <i class="fa-solid fa-sliders text-tech-cyan mt-1"></i>
+                              <div><strong class="text-white">Matriz Sensorial:</strong> <span class="text-slate-300">${proto.sensores}</span></div>
+                          </div>
+                          <div class="flex items-start space-x-3">
+                              <i class="fa-solid fa-battery-three-quarters text-tech-emerald mt-1"></i>
+                              <div><strong class="text-white">Alimentación:</strong> <span class="text-slate-300">${proto.alimentacion}</span></div>
+                          </div>
+                          <div class="flex items-start space-x-3">
+                              <i class="fa-solid fa-bell text-tech-rose mt-1"></i>
+                              <div><strong class="text-white">Alertas:</strong> <span class="text-slate-300">${proto.alertas}</span></div>
+                          </div>
+                          <div class="flex items-start space-x-3">
+                              <i class="fa-solid fa-cube text-tech-amber mt-1"></i>
+                              <div><strong class="text-white">Carcasa / Formato:</strong> <span class="text-slate-300">${proto.carcasa}</span></div>
+                          </div>
+                          <div class="flex items-start space-x-3">
+                              <i class="fa-solid fa-code text-purple-400 mt-1"></i>
+                              <div><strong class="text-white">Software:</strong> <span class="text-slate-300">${proto.software}</span></div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="lg:col-span-5">
+                      ${proto.imgHtml}
+                  </div>
+              </div>
+          `;
+      }
+
+      // Live Demo Interactive Simulation
+      function simularLectura(tipo) {
+        const title = document.getElementById("demo-title");
+        const body = document.getElementById("demo-body");
+        const alert = document.getElementById("demo-alert");
+
+        if (tipo === "gas") {
+          title.innerText = "⚠️ ALERTA: FUGA DETECTADA";
+          title.className = "text-tech-rose font-bold text-sm animate-pulse";
+          body.innerText =
+            "MQ-2: 4200 ppm (Gas GLP/Humo)\nMQ-9: 150 ppm (CO)\nBME688: Humedad Crítica";
+          alert.innerText = "ACCION: ZUMBADOR ACTIVO + VIBRACIÓN";
+          alert.className =
+            "text-tech-rose pt-2 border-t border-slate-800 font-bold";
+        } else if (tipo === "alimento") {
+          title.innerText = "⚠️ ALERTA: COMIDA EN DESCOMPOSICIÓN";
+          title.className = "text-tech-amber font-bold text-sm";
+          body.innerText =
+            "MQ-135: 850 ppm (Amoníaco/Sulfuros)\nMQ-3: 310 ppm (Etanol fermentación)\nBME688 IA: VOCs podridos 92%";
+          alert.innerText = "ALERTA: NO INGERIR ESTE ALIMENTO";
+          alert.className =
+            "text-tech-amber pt-2 border-t border-slate-800 font-bold";
+        } else {
+          title.innerText = "🌿 AMBIENTE NORMAL / SEGURO";
+          title.className = "text-tech-emerald font-bold text-sm";
+          body.innerText =
+            "MQ-2: 120 ppm (Limpio)\nMQ-135: 45 ppm (Limpio)\nBME688 IAQ: Excelente (22°C)";
+          alert.innerText = "ESTADO: SIN RIESGOS DETECTADOS";
+          alert.className =
+            "text-tech-emerald pt-2 border-t border-slate-800 font-semibold";
+        }
+      }
+
+      // Copy Contact Helper
+      function copiarContacto(texto) {
+        const el = document.createElement("textarea");
+        el.value = texto;
+        document.body.appendChild(el);
+        el.select();
+        document.execCommand("copy");
+        document.body.removeChild(el);
+
+        const msg = document.getElementById("copy-msg");
+        msg.classList.remove("opacity-0");
+        setTimeout(() => {
+          msg.classList.add("opacity-0");
+        }, 3000);
+      }
+
+      // Contact Modal Handler
+      const contactModal = document.getElementById("contact-modal");
+      const openContactModalButton =
+        document.getElementById("open-contact-modal");
+      const closeContactModalButton = document.getElementById(
+        "close-contact-modal",
+      );
+      const contactForm = document.getElementById("contact-form");
+      const senderEmailInput = document.getElementById("sender-email");
+
+      function abrirModalContacto() {
+        contactModal.classList.remove("hidden");
+        contactModal.classList.add("flex");
+        senderEmailInput.focus();
+      }
+
+      function cerrarModalContacto() {
+        contactModal.classList.add("hidden");
+        contactModal.classList.remove("flex");
+      }
+
+      openContactModalButton.addEventListener("click", abrirModalContacto);
+      closeContactModalButton.addEventListener("click", cerrarModalContacto);
+
+      contactModal.addEventListener("click", (event) => {
+        if (event.target === contactModal) {
+          cerrarModalContacto();
+        }
+      });
+
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const email = senderEmailInput.value.trim();
+        if (!email) {
+          senderEmailInput.focus();
+          return;
+        }
+
+        const mailtoLink =
+          "mailto:sebamussi.dev@hotmail.com?subject=" +
+          encodeURIComponent("Consulta Proyecto Nariz Electrónica") +
+          "&body=" +
+          encodeURIComponent(
+            "Desde: " + email + "\n\nHola, quiero contactarme con ustedes.",
+          );
+
+        window.location.href = mailtoLink;
+        contactForm.reset();
+        cerrarModalContacto();
+      });
+
+      // Mobile Menu Toggle
+      document
+        .getElementById("mobile-menu-btn")
+        .addEventListener("click", () => {
+          const menu = document.getElementById("mobile-menu");
+          menu.classList.toggle("hidden");
+        });
+
+      // Initialize Defaults
+      window.onload = function () {
+        mostrarSensor("mq2");
+        cambiarPrototipo(1);
+      };
+    </script>
+  </body>
+</html>
