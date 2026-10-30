@@ -10,556 +10,13 @@
       rel="stylesheet"
     />
 
-    <style>
-      :root {
-        --primary: #0284c7;
-        --primary-dark: #0369a1;
-        --accent-green: #10b981;
-        --accent-green-dark: #059669;
-        --accent-purple: #8b5cf6;
-        --dark: #0f172a;
-        /* Fondo verde muy clarito degradando a blanco */
-        --glass-bg: linear-gradient(
-          135deg,
-          rgba(240, 253, 244, 0.92) 0%,
-          rgba(255, 255, 255, 0.95) 100%
-        );
-        --glass-border: rgba(187, 247, 208, 0.75);
-        --shadow-soft: 0 20px 40px -15px rgba(0, 0, 0, 0.06);
-        --shadow-hover: 0 25px 50px -12px rgba(16, 185, 129, 0.18);
-      }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-        font-family: "Inter", sans-serif;
-      }
-
-      /* FONDO DINÁMICO ESTILO MAVEN CLINIC (Mesh Ambient Gradient) */
-      body {
-        background: linear-gradient(-45deg, #e0f2fe, #f0fdf4, #f3e8ff, #e0e7ff);
-        background-size: 400% 400%;
-        animation: gradientMesh 18s ease infinite;
-        color: var(--dark);
-        min-height: 100vh;
-        padding: 40px 0;
-      }
-
-      @keyframes gradientMesh {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
-      }
-
-      .container {
-        max-width: 1140px;
-        margin: 0 auto;
-        padding: 0 24px;
-      }
-
-      /* HEADER */
-      header {
-        text-align: center;
-        margin-bottom: 48px;
-      }
-
-      .badge {
-        display: inline-block;
-        padding: 8px 20px;
-        background: rgba(16, 185, 129, 0.12);
-        color: var(--accent-green-dark);
-        border-radius: 30px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        margin-bottom: 18px;
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        backdrop-filter: blur(8px);
-      }
-
-      h1 {
-        font-size: 3rem;
-        font-weight: 800;
-        letter-spacing: -1.2px;
-        background: linear-gradient(135deg, #0f172a 30%, #047857 100%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        margin-bottom: 16px;
-      }
-
-      .subtitle {
-        font-size: 1.2rem;
-        color: #475569;
-        max-width: 720px;
-        margin: 0 auto;
-        line-height: 1.6;
-      }
-
-      /* TARJETAS GLASSMORPHISM CON VERDE CLARITO A BLANCO */
-      .glass-card {
-        background: var(--glass-bg);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border: 1px solid var(--glass-border);
-        border-radius: 28px;
-        padding: 36px;
-        box-shadow: var(--shadow-soft);
-        margin-bottom: 40px;
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .glass-card:hover {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-hover);
-      }
-
-      .section-title {
-        font-size: 1.75rem;
-        font-weight: 700;
-        margin-bottom: 24px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        color: var(--dark);
-      }
-
-      /* DISEÑO DE PROTOTIPO ESTILO WALKMAN */
-      .walkman-layout {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 36px;
-        align-items: center;
-      }
-
-      @media (max-width: 850px) {
-        .walkman-layout {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      /* CARCASA DEL WALKMAN */
-      .walkman-case {
-        background: linear-gradient(145deg, #1e293b, #0f172a);
-        border: 3px solid #334155;
-        border-radius: 32px;
-        padding: 28px 24px;
-        box-shadow:
-          0 25px 50px -12px rgba(0, 0, 0, 0.45),
-          inset 0 2px 4px rgba(255, 255, 255, 0.1);
-        position: relative;
-      }
-
-      /* Rejilla de Sensores Superior */
-      .walkman-vents {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #090d16;
-        padding: 10px 18px;
-        border-radius: 12px;
-        margin-bottom: 20px;
-        border: 1px solid #334155;
-      }
-
-      .vent-slots {
-        display: flex;
-        gap: 6px;
-      }
-
-      .vent-slot {
-        width: 8px;
-        height: 18px;
-        background: #1e293b;
-        border-radius: 4px;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8);
-      }
-
-      .led-indicator {
-        width: 14px;
-        height: 14px;
-        border-radius: 50%;
-        background: #38bdf8;
-        box-shadow: 0 0 12px #38bdf8;
-        transition: all 0.3s ease;
-      }
-
-      /* Bisel y Pantalla OLED */
-      .oled-bezel {
-        background: #000000;
-        border: 4px solid #334155;
-        border-radius: 16px;
-        padding: 18px;
-        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.9);
-        margin-bottom: 20px;
-      }
-
-      .oled-screen {
-        font-family: "Courier New", monospace;
-        color: #38bdf8;
-        min-height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .oled-header {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.8rem;
-        border-bottom: 1px dashed #0284c7;
-        padding-bottom: 6px;
-        color: #94a3b8;
-      }
-
-      .oled-status {
-        font-size: 1.35rem;
-        font-weight: bold;
-        margin: 14px 0 6px;
-        color: #38bdf8;
-        text-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
-      }
-
-      .oled-metrics {
-        font-size: 0.85rem;
-        line-height: 1.5;
-        color: #e2e8f0;
-      }
-
-      .walkman-speaker-grill {
-        display: flex;
-        gap: 8px;
-        justify-content: center;
-        margin-top: 10px;
-      }
-
-      .speaker-slit {
-        width: 30px;
-        height: 4px;
-        background: #334155;
-        border-radius: 2px;
-      }
-
-      /* BOTONERA WALKMAN (ESTILO MONDAY.COM) */
-      .sim-btn-group {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-
-      .sim-btn {
-        padding: 16px 20px;
-        border: none;
-        border-radius: 16px;
-        background: #ffffff;
-        color: var(--dark);
-        font-weight: 600;
-        font-size: 0.95rem;
-        cursor: pointer;
-        text-align: left;
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border: 1px solid rgba(187, 247, 208, 0.8);
-      }
-
-      .sim-btn:hover {
-        background: #ffffff;
-        transform: translateX(6px);
-        border-color: var(--accent-green);
-        box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.2);
-      }
-
-      .sim-btn.active {
-        background: var(--dark);
-        color: white;
-        border-color: var(--dark);
-        box-shadow: 0 10px 20px -5px rgba(15, 23, 42, 0.3);
-      }
-
-      /* MATRIZ DE SENSORES */
-      .sensor-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-        gap: 20px;
-      }
-
-      /* Tarjetas de sensores: Verde apenas más oscuro que el fondo principal */
-      .sensor-card {
-        background: rgba(220, 252, 231, 0.82);
-        border-radius: 20px;
-        padding: 22px;
-        border: 1px solid rgba(167, 243, 208, 0.9);
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      .sensor-card:hover {
-        background: rgba(209, 250, 229, 0.95);
-        transform: translateY(-6px);
-        border-color: var(--accent-green);
-        box-shadow: 0 15px 30px -10px rgba(16, 185, 129, 0.22);
-      }
-
-      .sensor-tag {
-        font-size: 0.75rem;
-        font-weight: 800;
-        color: var(--accent-green-dark);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .sensor-name {
-        font-size: 1.3rem;
-        font-weight: 800;
-        margin: 6px 0;
-        color: var(--dark);
-      }
-
-      .sensor-desc {
-        font-size: 0.85rem;
-        color: #475569;
-        line-height: 1.45;
-      }
-
-      /* PESTAÑAS DE PROTOTIPOS */
-      .tab-buttons {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 24px;
-        overflow-x: auto;
-        padding-bottom: 8px;
-      }
-
-      .tab-btn {
-        padding: 12px 24px;
-        border: none;
-        border-radius: 30px;
-        background: rgba(220, 252, 231, 0.7);
-        color: #334155;
-        font-weight: 600;
-        font-size: 0.9rem;
-        cursor: pointer;
-        white-space: nowrap;
-        transition: all 0.25s ease;
-        border: 1px solid rgba(167, 243, 208, 0.8);
-      }
-
-      .tab-btn:hover {
-        background: #ffffff;
-        color: var(--accent-green-dark);
-      }
-
-      .tab-btn.active {
-        background: var(--accent-green);
-        color: white;
-        border-color: var(--accent-green);
-        box-shadow: 0 8px 20px -4px rgba(16, 185, 129, 0.4);
-      }
-
-      .tab-content {
-        display: none;
-        background: rgba(220, 252, 231, 0.65);
-        border-radius: 20px;
-        padding: 28px;
-        animation: fadeIn 0.4s ease;
-        border: 1px solid rgba(167, 243, 208, 0.8);
-      }
-
-      .tab-content.active {
-        display: block;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(8px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* SECCIÓN DE BENEFICIOS CLAVE */
-      .benefits-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 28px;
-      }
-
-      @media (max-width: 800px) {
-        .benefits-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      .benefit-box {
-        background: rgba(220, 252, 231, 0.75);
-        border-radius: 22px;
-        padding: 28px;
-        border: 1px solid rgba(167, 243, 208, 0.9);
-        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03);
-      }
-
-      .benefit-header {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: 1.25rem;
-        font-weight: 800;
-        margin-bottom: 18px;
-        color: var(--dark);
-      }
-
-      .benefit-list {
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-
-      .benefit-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 12px;
-        font-size: 0.95rem;
-        color: #334155;
-        line-height: 1.5;
-      }
-
-      .benefit-icon {
-        background: rgba(16, 185, 129, 0.2);
-        color: var(--accent-green-dark);
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        font-size: 0.85rem;
-        flex-shrink: 0;
-        margin-top: 2px;
-      }
-
-      /* HUB DE CÓDIGOS QR */
-      .qr-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 24px;
-      }
-
-      .qr-card {
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 24px;
-        padding: 28px 20px;
-        text-align: center;
-        border: 1px solid rgba(167, 243, 208, 0.8);
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .qr-card:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 35px -10px rgba(16, 185, 129, 0.18);
-        border-color: var(--accent-green);
-      }
-
-      .qr-box {
-        width: 150px;
-        height: 150px;
-        background: #f8fafc;
-        border-radius: 16px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 18px;
-        border: 2px dashed #cbd5e1;
-        padding: 10px;
-        transition: border-color 0.3s;
-      }
-
-      .qr-card:hover .qr-box {
-        border-color: var(--accent-green);
-      }
-
-      .qr-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-
-      .qr-title {
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin-bottom: 6px;
-        color: var(--dark);
-      }
-
-      .qr-sub {
-        font-size: 0.82rem;
-        color: #64748b;
-        margin-bottom: 18px;
-        line-height: 1.4;
-      }
-
-      .qr-btn {
-        width: 100%;
-        padding: 10px 16px;
-        border-radius: 30px;
-        font-size: 0.85rem;
-        font-weight: 700;
-        text-decoration: none;
-        color: white;
-        transition:
-          transform 0.2s,
-          opacity 0.2s;
-        display: inline-block;
-      }
-
-      .qr-btn:hover {
-        transform: scale(1.04);
-        opacity: 0.95;
-      }
-
-      .qr-btn.vcard {
-        background: #0284c7;
-      }
-      .qr-btn.video {
-        background: #e11d48;
-      }
-      .qr-btn.insta {
-        background: linear-gradient(
-          45deg,
-          #f09433,
-          #e6683c,
-          #dc2743,
-          #cc2366,
-          #bc1888
-        );
-      }
-      .qr-btn.wapp {
-        background: #22c55e;
-      }
-    </style>
+    <link rel="stylesheet" href="estilo_pagina.css" />
   </head>
   <body>
     <div class="container">
       <!-- Encabezado Principal -->
       <header>
-        <span class="badge">Digital Sixth Sense • Prototipo Activo</span>
+        <span class="badge">Salud Digital • Prototipos que mejoran tu salud</span>
         <h1>Nariz Electrónica Inteligente</h1>
         <p class="subtitle">
           Sistema inteligente de sustitución y asistencia olfativa impulsado por
@@ -570,7 +27,7 @@
       <!-- Simulador en Prototipo Walkman -->
       <div class="glass-card">
         <h2 class="section-title">
-          📺 Demostrador en Tiempo Real (Prototipo Portable Walkman)
+          Demostrador en Tiempo Real (Prototipo Portable)
         </h2>
 
         <div class="walkman-layout">
@@ -578,14 +35,7 @@
           <div class="walkman-case">
             <!-- Ventilación Superior -->
             <div class="walkman-vents">
-              <div
-                style="
-                  font-size: 0.7rem;
-                  color: #94a3b8;
-                  font-weight: bold;
-                  letter-spacing: 1px;
-                "
-              >
+              <div class="vents-label">
                 ENTRADA MATRIZ SENSORES
               </div>
               <div class="vent-slots">
@@ -612,9 +62,7 @@
                     Peligro Fugas: NINGUNO
                   </div>
                 </div>
-                <div
-                  style="font-size: 0.7rem; color: #64748b; text-align: right"
-                >
+                <div class="oled-label">
                   OLED I²C 0.96" (128x64)
                 </div>
               </div>
@@ -630,29 +78,22 @@
 
           <!-- CONTROLES DEL DEMOSTRADOR -->
           <div class="sim-btn-group">
-            <p
-              style="
-                color: #64748b;
-                font-size: 0.9rem;
-                margin-bottom: 4px;
-                font-weight: 600;
-              "
-            >
+            <p class="scenario-description">
               Selecciona un escenario de prueba ambiental:
             </p>
-            <button class="sim-btn active" onclick="setOled('clean', this)">
+            <button class="sim-btn active" data-scenario="clean">
               <span>🍃 Aire Limpio / Ambiente Seguro</span>
               <span>➔</span>
             </button>
-            <button class="sim-btn" onclick="setOled('gas', this)">
+            <button class="sim-btn" data-scenario="gas">
               <span>🚨 Fuga de Gas Doméstico (GLP / Metano)</span>
               <span>➔</span>
             </button>
-            <button class="sim-btn" onclick="setOled('co', this)">
+            <button class="sim-btn" data-scenario="co">
               <span>⚠️ Monóxido de Carbono (CO)</span>
               <span>➔</span>
             </button>
-            <button class="sim-btn" onclick="setOled('spoil', this)">
+            <button class="sim-btn" data-scenario="spoil">
               <span>🍏 Alimento en Descomposición</span>
               <span>➔</span>
             </button>
@@ -665,7 +106,7 @@
         <h2 class="section-title">
           🔬 Matriz Tecnológica de Sensores Ortogonales
         </h2>
-        <p style="color: #64748b; margin-bottom: 22px">
+        <p class="sensor-intro">
           Captura de huellas químicas moleculares en tiempo real para máxima
           precisión:
         </p>
@@ -702,11 +143,8 @@
               alimentos.
             </div>
           </div>
-          <div
-            class="sensor-card"
-            style="border: 2px solid var(--accent-green)"
-          >
-            <span class="sensor-tag" style="color: var(--accent-green-dark)"
+          <div class="sensor-card sensor-card-featured">
+            <span class="sensor-tag sensor-tag-featured"
               >MEMS + IA</span
             >
             <div class="sensor-name">BME688</div>
@@ -728,7 +166,7 @@
           <!-- Para Usuarios y Familias -->
           <div class="benefit-box">
             <div class="benefit-header">
-              <span style="font-size: 1.5rem">👥</span>
+              <span class="benefit-emoji">👥</span>
               <span>Para Usuarios y Familias</span>
             </div>
             <ul class="benefit-list">
@@ -762,7 +200,7 @@
           <!-- Para Inversores y Sector Salud / Industrial -->
           <div class="benefit-box">
             <div class="benefit-header">
-              <span style="font-size: 1.5rem">💼</span>
+              <span class="benefit-emoji">💼</span>
               <span>Para Inversores y Sector Salud</span>
             </div>
             <ul class="benefit-list">
@@ -799,28 +237,28 @@
 
       <!-- Evolución del Prototipo (Pestañas) -->
       <div class="glass-card">
-        <h2 class="section-title">🚀 Hoja de Ruta y Evolución del Prototipo</h2>
+        <h2 class="section-title">Hoja de Ruta y Evolución del Prototipo</h2>
 
         <div class="tab-buttons">
-          <button class="tab-btn active" onclick="switchTab('p1', this)">
+          <button class="tab-btn active" data-tab="p1">
             Prototipo 1: Validación
           </button>
-          <button class="tab-btn" onclick="switchTab('p2', this)">
+          <button class="tab-btn" data-tab="p2">
             Prototipo 2: Conectividad
           </button>
-          <button class="tab-btn" onclick="switchTab('p3', this)">
+          <button class="tab-btn" data-tab="p3">
             Prototipo 3: TinyML / IA
           </button>
-          <button class="tab-btn" onclick="switchTab('p4', this)">
+          <button class="tab-btn" data-tab="p4">
             Prototipo 4: Nanotecnología
           </button>
         </div>
 
         <div id="p1" class="tab-content active">
-          <h3 style="color: var(--dark); margin-bottom: 8px">
+          <h3 class="prototype-title">
             Prototipo 1: Validación Básica y Adquisición de Datos
           </h3>
-          <p style="color: #475569; line-height: 1.6">
+          <p class="prototype-description">
             Demostración de viabilidad técnica. Integración del microcontrolador
             ESP32-S3 con la matriz multigas, pantalla OLED 0.96", buzzer activo
             y sistema de alimentación portátil LiPo (6400 mAh) para calibración
@@ -828,30 +266,30 @@
           </p>
         </div>
         <div id="p2" class="tab-content">
-          <h3 style="color: var(--dark); margin-bottom: 8px">
+          <h3 class="prototype-title">
             Prototipo 2: Conectividad e Integración de Alertas de Emergencia
           </h3>
-          <p style="color: #475569; line-height: 1.6">
+          <p class="prototype-description">
             Envío automático de mensajes a contactos de emergencia. Sistema
             multimodal de alertas: notificaciones push móviles, SMS/WhatsApp,
             alarma sonora de alta frecuencia y alerta háptica por vibración.
           </p>
         </div>
         <div id="p3" class="tab-content">
-          <h3 style="color: var(--dark); margin-bottom: 8px">
+          <h3 class="prototype-title">
             Prototipo 3: Inteligencia Artificial y Clasificación Fina (TinyML)
           </h3>
-          <p style="color: #475569; line-height: 1.6">
+          <p class="prototype-description">
             Entrenamiento e implementación local de modelos de IA (TensorFlow
             Lite Micro / BME AI-Studio). Identificación precisa de patrones de
             descomposición en tipos específicos de alimentos.
           </p>
         </div>
         <div id="p4" class="tab-content">
-          <h3 style="color: var(--dark); margin-bottom: 8px">
+          <h3 class="prototype-title">
             Prototipo 4: Nanotecnología Avanzada y Miniaturización Biomédica
           </h3>
-          <p style="color: #475569; line-height: 1.6">
+          <p class="prototype-description">
             Integración de nanosensores de ultra-alta sensibilidad (partes por
             billón - ppb) y miniaturización completa en formato wearable/clínico
             para asistencia médica de precisión.
@@ -862,32 +300,32 @@
       <!-- HUB DE CÓDIGOS QR -->
       <div class="glass-card">
         <h2 class="section-title">📲 Hub de Accesos Rápidos por Código QR</h2>
-        <p style="color: #64748b; margin-bottom: 24px">
+        <p class="qr-intro">
           Escanea con la cámara de tu celular para acceder directamente a cada
           recurso comercial:
         </p>
 
         <div class="qr-grid">
-          <!-- QR 1: Contactos -->
+          <!-- QR 1: Contactos (Email) -->
           <div class="qr-card">
             <div class="qr-box">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ejemplo.com/contacto"
-                alt="QR Contactos"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=MATMSG:TO:sebamussi.dev@hotmail.com;SUB:Consulta%20Proyecto%20Nariz%20Electronica;BODY:Hola%20Sebas,%20me%20gustaria%20recibir%20mas%20informacion%20sobre%20la%20Nariz%20Electronica.;;"
+                alt="QR Correo Electrónico"
               />
             </div>
-            <div class="qr-title">📇 Ficha de Contacto</div>
+            <div class="qr-title">✉️ Mail de Contacto</div>
             <div class="qr-sub">
-              Guarda directamente nuestros datos comerciales en tu agenda
+              Envíanos un email y respondemos tu consulta
             </div>
-            <a href="#" class="qr-btn vcard">Escanear / Guardar</a>
+            <a href="mailto:sebamussi.dev@hotmail.com?subject=Consulta%20Proyecto%20Nariz%20Electronica" target="_blank" class="qr-btn vcard">Enviar Email</a>
           </div>
 
           <!-- QR 2: Video Explicativo -->
           <div class="qr-card">
             <div class="qr-box">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://youtube.com"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/file/d/14L1wkBjKzNHhgQfv2bQJRfrapOmFCKU_/view?pli=1"
                 alt="QR Video Explicativo"
               />
             </div>
@@ -895,14 +333,14 @@
             <div class="qr-sub">
               Demostración en vivo del funcionamiento del prototipo
             </div>
-            <a href="#" class="qr-btn video">Ver Video</a>
+            <a href="https://drive.google.com/file/d/14L1wkBjKzNHhgQfv2bQJRfrapOmFCKU_/view?pli=1" target="_blank" class="qr-btn video">Ver Video</a>
           </div>
 
           <!-- QR 3: Instagram -->
           <div class="qr-card">
             <div class="qr-box">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://instagram.com"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.instagram.com/invites/contact/?utm_content=114ci5gu&exln=7knit12b3tf4"
                 alt="QR Instagram"
               />
             </div>
@@ -910,14 +348,14 @@
             <div class="qr-sub">
               Sigue las novedades y pruebas de campo del proyecto
             </div>
-            <a href="#" class="qr-btn insta">Ir a Instagram</a>
+            <a href="https://www.instagram.com/invites/contact/?utm_content=114ci5gu&exln=7knit12b3tf4" target="_blank" class="qr-btn insta">Ir a Instagram</a>
           </div>
 
           <!-- QR 4: WhatsApp -->
           <div class="qr-card">
             <div class="qr-box">
               <img
-                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/"
+                src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/5491137642887?text=Hola%20Sebas,%20quiero%20saber%20más%20sobre%20la%20Nariz%20Electrónica"
                 alt="QR WhatsApp"
               />
             </div>
@@ -925,77 +363,12 @@
             <div class="qr-sub">
               Inicia una conversación directa con nuestro equipo
             </div>
-            <a href="#" class="qr-btn wapp">Enviar Mensaje</a>
+            <a href="https://wa.me/5491137642887?text=Hola%20Sebas,%20quiero%20saber%20más%20sobre%20la%20Nariz%20Electrónica" target="_blank" class="qr-btn wapp">Enviar Mensaje</a>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- LÓGICA DE INTERACCIÓN -->
-    <script>
-      // Simulador de Pantalla OLED + Lógica Walkman
-      function setOled(mode, btnElement) {
-        const status = document.getElementById("oledStatus");
-        const metrics = document.getElementById("oledMetrics");
-        const display = document.getElementById("oledDisplay");
-        const led = document.getElementById("walkmanLed");
-
-        document
-          .querySelectorAll(".sim-btn")
-          .forEach((b) => b.classList.remove("active"));
-        btnElement.classList.add("active");
-
-        if (mode === "clean") {
-          status.className = "oled-status";
-          status.style.color = "#38bdf8";
-          status.innerText = "🍃 AIRE LIMPIO";
-          metrics.innerHTML =
-            "VOCs: 12 ppb | Calidad: Excelente<br>Temp: 23.5°C | Humedad: 48%<br>Peligro Fugas: NINGUNO";
-          display.style.borderColor = "#0284c7";
-          led.style.background = "#38bdf8";
-          led.style.boxShadow = "0 0 12px #38bdf8";
-        } else if (mode === "gas") {
-          status.className = "oled-status";
-          status.style.color = "#ef4444";
-          status.innerText = "🚨 ALERTA: FUGA DE GAS";
-          metrics.innerHTML =
-            '<span style="color:#ef4444;font-weight:bold;">MQ-2: 850 ppm (GLP/Propano)</span><br>Buzzer: ACTIVADO (85dB)<br>Notificación enviada por WhatsApp';
-          display.style.borderColor = "#ef4444";
-          led.style.background = "#ef4444";
-          led.style.boxShadow = "0 0 15px #ef4444";
-        } else if (mode === "co") {
-          status.className = "oled-status";
-          status.style.color = "#f59e0b";
-          status.innerText = "⚠️ ALERTA: MONÓXIDO (CO)";
-          metrics.innerHTML =
-            '<span style="color:#f59e0b;font-weight:bold;">MQ-9: 120 ppm (Peligro Alto)</span><br>Combustión Incompleta Detectada<br>Ventilar ambiente inmediatamente';
-          display.style.borderColor = "#f59e0b";
-          led.style.background = "#f59e0b";
-          led.style.boxShadow = "0 0 15px #f59e0b";
-        } else if (mode === "spoil") {
-          status.className = "oled-status";
-          status.style.color = "#84cc16";
-          status.innerText = "🍏 ALIMENTO DESCOMPUESTO";
-          metrics.innerHTML =
-            "MQ-135 (NH3/Sulfuros): Elevado<br>BME688 TinyML: Orgánico alterado<br>Estado: No Apto para Consumo";
-          display.style.borderColor = "#84cc16";
-          led.style.background = "#84cc16";
-          led.style.boxShadow = "0 0 15px #84cc16";
-        }
-      }
-
-      // Selector de Pestañas de Prototipos
-      function switchTab(tabId, btnElement) {
-        document
-          .querySelectorAll(".tab-btn")
-          .forEach((b) => b.classList.remove("active"));
-        document
-          .querySelectorAll(".tab-content")
-          .forEach((c) => c.classList.remove("active"));
-
-        btnElement.classList.add("active");
-        document.getElementById(tabId).classList.add("active");
-      }
-    </script>
+    <script src="scrip_pagina.js"></script>
   </body>
 </html>
